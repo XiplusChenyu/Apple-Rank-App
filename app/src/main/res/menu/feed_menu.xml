@@ -3,16 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/mnuLimit"
+        android:checkable="true"
+        android:title="Show Top 5" />
+    <item
         android:id="@+id/mnuSong"
         android:title="Songs" />
-    <item
-        android:id="@+id/mnuMovies"
-        android:title="Movies" />
     <item
         android:id="@+id/mnuApps"
         android:title="Paid Apps" />
     <item
-        android:id="@+id/mnuLimit"
-        android:checkable="true"
-        android:title="Show Top 5" />
+        android:id="@+id/mnuMovies"
+        android:title="Movies" />
 </menu>
