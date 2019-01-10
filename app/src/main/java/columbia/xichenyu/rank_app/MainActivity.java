@@ -22,10 +22,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private ListView listSongs;
+    private MenuItem checkBox;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.feed_menu, menu);
+        checkBox = menu.findItem(R.id.mnuLimit);
         return true;
     }
 
@@ -34,19 +36,21 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         boolean itemLimited = false;
         int limitNum = 50;
-
         String feedURL="http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=%d/xml";
         switch (id) {
             case R.id.mnuApps:
                 feedURL = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=%d/xml";
+                checkBox.setChecked(false);
                 break;
 
             case R.id.mnuMovies:
                 feedURL = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topMovies/xml";
+                checkBox.setChecked(false);
                 break;
 
             case R.id.mnuSong:
                 feedURL = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=%d/xml";
+                checkBox.setChecked(false);
                 break;
 
             case R.id.mnuLimit:
