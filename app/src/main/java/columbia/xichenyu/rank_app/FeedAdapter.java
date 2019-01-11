@@ -1,13 +1,23 @@
 package columbia.xichenyu.rank_app;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class FeedAdapter extends ArrayAdapter {
@@ -50,12 +60,17 @@ public class FeedAdapter extends ArrayAdapter {
 
 
         FeedDealer currentSong = songs.get(position);
+        String URLimg = currentSong.getImageURL();
+
+        Glide.with(convertView.getContext()).load(URLimg).override(150,150).
+                fitCenter().into(tvHolder.img);
 
         tvHolder.tvName.setText(currentSong.getTitle());
         tvHolder.tvArtist.setText(currentSong.getArtist());
         tvHolder.tvDate.setText("Release Date: " + currentSong.getDate());
         tvHolder.tvPrice.setText("Price: " + currentSong.getPrice());
         tvHolder.tvRight.setText(currentSong.getRight());
+
 //        tvRight.setMovementMethod(ScrollingMovementMethod.getInstance());
 //        tvRight.setHorizontallyScrolling(true);
 //        tvRight.setFocusable(true);
@@ -69,6 +84,7 @@ public class FeedAdapter extends ArrayAdapter {
         final TextView tvRight;
         final TextView tvPrice;
         final TextView tvDate;
+        final ImageView img;
 
 
         tvHolder(View v) {
@@ -77,6 +93,7 @@ public class FeedAdapter extends ArrayAdapter {
             this.tvRight = v.findViewById(R.id.tvRight);
             this.tvPrice = v.findViewById(R.id.tvPrice);
             this.tvDate = v.findViewById(R.id.tvDate);
+            this.img = v.findViewById(R.id.img);
 
         }
     }

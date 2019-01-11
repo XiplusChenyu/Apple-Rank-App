@@ -1,11 +1,23 @@
 package columbia.xichenyu.rank_app;
 
+import android.graphics.Bitmap;
+
 public class FeedDealer {
 
     private String title;
     private String artist;
     private String date;
     private String right;
+
+    public Bitmap getImgBitmap() {
+        return imgBitmap;
+    }
+
+    public void setImgBitmap(Bitmap imgBitmap) {
+        this.imgBitmap = imgBitmap;
+    }
+
+    private Bitmap imgBitmap = null;
 
     public String getPrice() {
         return price;

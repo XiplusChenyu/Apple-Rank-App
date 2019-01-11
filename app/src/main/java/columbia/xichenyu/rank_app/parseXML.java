@@ -1,12 +1,18 @@
 package columbia.xichenyu.rank_app;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.provider.CalendarContract;
 import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class parseXML {
@@ -74,6 +80,23 @@ public class parseXML {
 
                             } else if ("image".equalsIgnoreCase(tagName)) {
                                 currentSong.setImageURL(textValue);
+
+//                                String imgPath = currentSong.getImageURL();
+
+//                                try{
+//                                    URL imgURL = new URL(imgPath);
+//                                    HttpURLConnection connection = (HttpURLConnection) imgURL.openConnection();
+//                                    connection.setConnectTimeout(0);
+//                                    connection.setDoInput(true);
+//                                    connection.setUseCaches(true);
+//                                    connection.connect();
+//                                    InputStream is = connection.getInputStream();
+//                                    Bitmap bitmap = BitmapFactory.decodeStream(is);
+//                                    currentSong.setImgBitmap(bitmap);
+//                                    is.close();
+//                                }
+//                                catch (IOException e) {e.printStackTrace();}
+
                             } else if ("rights".equalsIgnoreCase(tagName)) {
                                 currentSong.setRight(textValue);
                             } else if ("price".equalsIgnoreCase(tagName)) {

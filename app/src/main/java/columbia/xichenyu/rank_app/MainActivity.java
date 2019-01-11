@@ -1,5 +1,7 @@
 package columbia.xichenyu.rank_app;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         boolean itemLimited = false;
         int limitNum = 50;
+        boolean feedCachedInfo = true;
 
         switch (id) {
             case R.id.mnuApps:
@@ -178,6 +181,25 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+
+//        private Bitmap downloadPic(String path){
+////            try{
+////                URL imgURL = new URL(path);
+////                HttpURLConnection connection = (HttpURLConnection) imgURL.openConnection();
+////                connection.setConnectTimeout(5000);
+////                connection.setDoInput(true);
+////                connection.setUseCaches(true);
+////                connection.connect();
+////                InputStream is = connection.getInputStream();
+////                Bitmap bitmap = BitmapFactory.decodeStream(is);
+////                is.close();
+////                return bitmap;
+////            }
+////            catch (IOException e) {
+////                e.printStackTrace();
+////                return null;
+////            }
+////        }
     }
 
 }
